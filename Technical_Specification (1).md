@@ -9,6 +9,7 @@ Team: Tessneem Khalil and Salwa Syed | Advisor: Dr. Jillian Aurisano
 | Version | Date | Change | Author |
 |---|---|---|---|
 | 1.0 | 2026-10-29 | First version. Built from Requirements_Document.md v1.0 and Design D0 to D2. Includes the data-model clarification below and clarifies API response fields, exchange-rate caching, and climate refresh recovery. | Tessneem Khalil, Salwa Syed |
+| 1.1 | 2026-11-04 | Test Plan (Week 10) fixes the provisional test-case IDs and adds TC-034 to TC-055, three or more cases per Must requirement. | Salwa Syed, Tessneem Khalil |
 
 **Design clarification logged here.** D0 says an itinerary stores recommendations with its review, but the D1 entity list shows only `review`. This spec adds a `recommendations` text-array column on `itinerary` so the stored data matches the D0 `TripDraft`. D0 and D1 files were not edited.
 
