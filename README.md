@@ -19,3 +19,8 @@ Advisor: Dr. Jillian Aurisano
 - [Requirements Document](Requirements_Document.md) - Functional and non-functional requirements, priorities, and constraints.
 - [Technical Specification](Technical_Specification.md) - System architecture, interfaces, technology stack, and traceability matrix.
 - [Design Diagrams](Design_Diagrams/) - System design diagrams and component relationships.
+- [Test Plan](Test_Plan.md) - Test cases, environment, metrics, and pass/fail criteria for Week 10.
+
+## 4. Appendix
+
+- [Test Plan](Test_Plan.md)
