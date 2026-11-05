@@ -23,4 +23,9 @@ Advisor: Dr. Jillian Aurisano
 
 ## 4. Appendix
 
-- [Test Plan](Test_Plan.md)
+Supporting artifacts and planning sources, referenced by the documents above.
+
+- [Test Plan](Test_Plan.md) - Test cases, environment, metrics, and pass/fail criteria (Week 10).
+- [Tasklist.md](Tasklist.md) - Task list (Assignment #5), matching Planning/Planning_Assignment8.md.
+- [Planning/Planning_Assignment8.md](Planning/Planning_Assignment8.md) - Milestones, timeline, effort matrix, work breakdown structure, and risk register (Assignment #6).
+- [Peer_Review_Notes.md](Peer_Review_Notes.md) - Peer design review notes and action items (D2).
