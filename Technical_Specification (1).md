@@ -147,33 +147,33 @@ Normal saves require a valid USD conversion and are all-or-nothing. The current 
 
 ## 6. Traceability Matrix
 
-One row per REQ, NFR, and CON ID. Design components are named from D0 (boundaries and components), D1 (data model, algorithm, API contract), and D2 (behavior, state machines, edge cases). Test IDs are planned and provisional until the Week 10 test plan fixes them. T7 (concurrency tests) and T16 (performance validation) from the Task List are the test tasks behind TC-004, TC-008, TC-012, TC-016, TC-017, and TC-018.
+One row per REQ, NFR, and CON ID. Design components are named from D0 (boundaries and components), D1 (data model, algorithm, API contract), and D2 (behavior, state machines, edge cases). Test IDs are fixed as of Test_Plan.md v1.0 (2026-11-04). T7 (concurrency tests) and T16 (performance validation) from the Task List are the test tasks behind TC-004, TC-008, TC-012, TC-016, TC-017, and TC-018.
 
 | Req ID | Description | Design Component (D0/D1/D2) | Status | Test Case |
 |---|---|---|---|---|
-| REQ-01 | Cost breakdown with average and category ranges | C4 (D0 I5, I9); D1 Cost Breakdown Aggregation; `GET /v1/cost-breakdown` | Designed | TC-001 |
-| REQ-02 | n and reliability label on every breakdown | C4 reliability tiers (D1, D0 D06); C1 results view (D2 2.9) | Designed | TC-002 |
-| REQ-03 | No-data message and alternate month | C4 `findNearestMonth`, `nearest_month` (D1, D2 E-C4-01, E-C4-02) | Designed | TC-003 |
-| REQ-04 | Save itinerary all-or-nothing | C3 `POST /v1/itineraries` (D1 Endpoint 2, D0 I4, I8); D2 Fig. D2-4; `idempotency_key` | Designed | TC-004 (T7) |
-| REQ-05 | Convert costs to USD with stored rate | C3 with X3 (D0 I13); `cost_item` columns (D1); D2 Fig. D2-4, E-C3-06 | Designed | TC-005 |
+| REQ-01 | Cost breakdown with average and category ranges | C4 (D0 I5, I9); D1 Cost Breakdown Aggregation; `GET /v1/cost-breakdown` | Designed | TC-001, TC-034, TC-035 |
+| REQ-02 | n and reliability label on every breakdown | C4 reliability tiers (D1, D0 D06); C1 results view (D2 2.9) | Designed | TC-002, TC-036, TC-037 |
+| REQ-03 | No-data message and alternate month | C4 `findNearestMonth`, `nearest_month` (D1, D2 E-C4-01, E-C4-02) | Designed | TC-003, TC-038, TC-039 |
+| REQ-04 | Save itinerary all-or-nothing | C3 `POST /v1/itineraries` (D1 Endpoint 2, D0 I4, I8); D2 Fig. D2-4; `idempotency_key` | Designed | TC-004 (T7), TC-040, TC-041 |
+| REQ-05 | Convert costs to USD with stored rate | C3 with X3 (D0 I13); `cost_item` columns (D1); D2 Fig. D2-4, E-C3-06 | Designed | TC-005, TC-042, TC-043 |
 | REQ-06 | Public/private switch and delete | C3 `PATCH`, `DELETE /v1/itineraries/{id}`; `itinerary.visibility`; D2 Fig. D2-3 | Designed | TC-006 |
 | REQ-07 | Edit while private, publish with revalidation | C3 edit and publish steps (D2 2.4); D2 Fig. D2-3, E-C3-08 | Designed | TC-007 |
 | REQ-08 | Remix into a private copy | C3 remix steps (D2 2.4); D0 D07; E-C3-04 | Designed | TC-008 (T7) |
-| REQ-09 | Season search by month | C5 (D0 I6, I10); `GET /v1/season-search`; `climate_normal` (D2 2.2) | Designed | TC-009 |
+| REQ-09 | Season search by month | C5 (D0 I6, I10); `GET /v1/season-search`; `climate_normal` (D2 2.2) | Designed | TC-009, TC-044, TC-045 |
 | REQ-10 | Weekly climate refresh with fallback | C5 refresh job (D0 I12, D04); D2 Fig. D2-1, E-C5-02 to E-C5-04 | Designed | TC-010 |
 | REQ-11 | Submit a cost flag | C6 `POST /v1/cost-flags` (D0 I7, I11); `cost_flag`; D2 2.3 | Designed | TC-011 |
 | REQ-12 | Reviewer triage of flags | C6 admin endpoints; D2 Fig. D2-2, E-C6-03 | Designed | TC-012 (T7) |
-| REQ-13 | Sign-in through OIDC, 8 h session | Auth/Session (D0 I3, D05; D2 2.5); `user` | Designed | TC-013 |
+| REQ-13 | Sign-in through OIDC, 8 h session | Auth/Session (D0 I3, D05; D2 2.5); `user` | Designed | TC-013, TC-046, TC-047 |
 | REQ-14 | Keep draft after a failed save | C1 draft handling and `showRequestError` (D2 2.9, E-C1-02 to E-C1-04) | Designed | TC-014 |
 | REQ-15 | Display itineraries by visibility | C3 `GET /v1/itineraries/{id}` (D0 I4; D2 2.4) | Designed | TC-015 |
-| NFR-01 | Breakdown within 3 s at p95 | C4 and C7 indexes `(destination_id, start_date)`, `(category)` (D1 complexity analysis; D0 I9) | Designed | TC-016 (T16) |
+| NFR-01 | Breakdown within 3 s at p95 | C4 and C7 indexes `(destination_id, start_date)`, `(category)` (D1 complexity analysis; D0 I9) | Designed | TC-016 (T16), TC-048, TC-049 |
 | NFR-02 | Season search within 3 s at p95 | C5 reading stored `climate_normal` (D2 2.2; D0 I10) | Designed | TC-017 (T16) |
 | NFR-03 | Save within 2 s at p95 for cached rates | C3 with cached X3 rates (D2 E-C3-06; D0 I13) | Designed | TC-018 (T16) |
-| NFR-04 | Write auth, signed cookie, no secrets in logs | `authRequired`, session cookie (D2 2.5); Configuration (D2 2.7); log redaction (D2 2.8) | Designed | TC-019 |
-| NFR-05 | Private itineraries stay private | C3 read rule and remix step 1 (D2 2.4); `404` not `403` | Designed | TC-020 |
+| NFR-04 | Write auth, signed cookie, no secrets in logs | `authRequired`, session cookie (D2 2.5); Configuration (D2 2.7); log redaction (D2 2.8) | Designed | TC-019, TC-050, TC-051 |
+| NFR-05 | Private itineraries stay private | C3 read rule and remix step 1 (D2 2.4); `404` not `403` | Designed | TC-020, TC-052, TC-053 |
 | NFR-06 | First-time user tasks within time and rate | C1 screens for trip entry, search, and breakdown (Task T1; D2 2.9) | Planned | TC-021 |
 | NFR-07 | Keyboard operable, labeled, text reliability | C1 (D2 2.9; D0 section 6) | Designed | TC-022 |
-| NFR-08 | No partial itineraries after failures | C3 transaction (D0 D02; D2 Fig. D2-4, E-C3-07); C7 | Designed | TC-023 |
+| NFR-08 | No partial itineraries after failures | C3 transaction (D0 D02; D2 Fig. D2-4, E-C3-07); C7 | Designed | TC-023, TC-054, TC-055 |
 | NFR-09 | Degraded service when X2 or X3 is down | C5 fallback (D0 D04); D2 Fig. D2-1, E-C5-04, E-AU-04; `/healthz` | Designed | TC-024 |
 | NFR-10 | Request ID on responses, no secrets in logs | Logging (D2 2.8, E-LG-01 to E-LG-04) | Designed | TC-025 |
 | CON-01 | Low-cost services | D1 technology choices (hosting); D0 section 6; D2 2.6 optional, 2.8 | Designed | TC-026 |
